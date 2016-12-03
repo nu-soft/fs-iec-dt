@@ -258,8 +258,8 @@
     /// of measure is erased in compiled code and when values of this type
     /// are analyzed using reflection. The type is representationally equivalent to 
     /// <c>System.Double</c>.</summary>
-    //[<MeasureAnnotatedAbbreviation>] type LREAL<[<Measure>] 'Measure>  = LREAL
-    //
+    [<MeasureAnnotatedAbbreviation>] type LREAL<[<Measure>] 'Measure>  = LREAL
+    
     //val inline op_Bar : 'T -> int -> bool when 
     //  'T: (static member (<<<): 'T -> int -> 'T) and 
     //  'T: (static member (&&&): 'T -> 'T -> 'T) and 
