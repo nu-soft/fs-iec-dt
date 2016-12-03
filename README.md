@@ -1,4 +1,4 @@
-# fs-iec-dt
+# F# IEC 61131-3 data types
 ATM library only adds IEC 61131-3 data type aliases to F#
 aliases as follows:
 
