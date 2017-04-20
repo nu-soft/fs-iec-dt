@@ -1,8 +1,8 @@
 skip_commits:
   files:
-    - *.md
-    - *.yml
-    - NuGet/*.ps1
+    - ./**/*.md
+    - ./**/*.yml
+    - ./**/*.ps1
 
 branches:
   only:
