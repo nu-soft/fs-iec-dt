@@ -1,5 +1,5 @@
 $root = (split-path -parent $MyInvocation.MyCommand.Definition) + '\..'
-$version = [System.Reflection.Assembly]::LoadFile("$root\NuSoft.FSharp.IEC.DataTypes\bin\ReleaseNuSoft.FSharp.IEC.DataTypes.dll").GetName().Version
+$version = [System.Reflection.Assembly]::LoadFile("$root\NuSoft.FSharp.IEC.DataTypes\bin\Release\NuSoft.FSharp.IEC.DataTypes.dll").GetName().Version
 $versionStr = "{0}.{1}.{2}" -f ($version.Major, $version.Minor, $version.Build)
 
 Write-Host "Setting .nuspec version tag to $versionStr"
