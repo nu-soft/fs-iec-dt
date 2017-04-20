@@ -10,8 +10,6 @@ branches:
     
 before_build:
   - nuget restore
-platform: Any CPU
-configuration: Release
 
 version: '1.0.{build}'
 assembly_info:
