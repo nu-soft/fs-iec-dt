@@ -260,24 +260,17 @@
     /// <c>System.Double</c>.</summary>
     [<MeasureAnnotatedAbbreviation>] type LREAL<[<Measure>] 'Measure>  = LREAL
     
-    //val inline op_Bar : 'T -> int -> bool when 
-    //  'T: (static member (<<<): 'T -> int -> 'T) and 
-    //  'T: (static member (&&&): 'T -> 'T -> 'T) and 
-    //  'T: (static member op_RightShift: 'T -> int -> 'T)
-    //  
-    //
-    //val inline op_BarBar : 'T -> int -> (bool -> 'T) when 
-    //  'T: (static member (<<<): 'T -> int -> 'T) and 
-    //  'T: (static member (&&&): 'T -> 'T -> 'T) and 
-    //  'T: (static member op_RightShift: 'T -> int -> 'T)
-    //val inline op_LessThanMinus : (bool -> 'T) -> bool -> 'T when 
-    //  'T: (static member (<<<): 'T -> int -> 'T) and 
-    //  'T: (static member (&&&): 'T -> 'T -> 'T) and 
-    //  'T: (static member op_RightShift: 'T -> int -> 'T)
-    //val inline (?<-) : 'T -> int -> bool -> 'T when 
-    //  'T: (static member (<<<): 'T -> int -> 'T) and 
-    //  'T: (static member (&&&): 'T -> 'T -> 'T) and 
-    //  'T: (static member op_RightShift: 'T -> int -> 'T)
+    val inline op_AtAt : 'T -> int -> 'T when 
+      'T: (static member (<<<): 'T -> int -> 'T) and 
+      'T: (static member (&&&): 'T -> 'T -> 'T) and 
+      'T: (static member op_RightShift: 'T -> int -> 'T)
+
+    val inline op_LessBang: 'T -> int -> 'T -> 'T when 
+      'T: (static member (<<<): 'T -> int -> 'T) and 
+      'T: (static member (&&&): 'T -> 'T -> 'T) and  
+      'T: (static member (~~~): 'T -> 'T) and
+      'T: equality and
+      'T: (static member (|||): 'T -> 'T -> 'T)
     
   [<AutoOpen>]
   module MeasureOperators =
@@ -351,19 +344,3 @@
     /// <param name="LREAL">The input LREAL.</param>
     /// <returns>The LREAL with units-of-measure.</returns>
     val inline LREALWithMeasure  : LREAL -> LREAL<'Measure>
-
-  //[<AutoOpen>]
-  //module Workarounds =
-  //
-  //  [<Struct(*;StructLayout(LayoutKind.Sequential, Pack=1)*)>]
-  //  type BOOLSTRUCT  = 
-  //    val value: BOOL
-  //
-  //    new : BOOL -> BOOLSTRUCT
-  //
-  //    
-  //  [<CompiledName("ToBool")>]
-  //  val inline BOOL : BOOL -> BOOLSTRUCT
-  //  
-  //  [<CompiledName("FromBool")>]
-  //  val inline BOOLSTRUCT : BOOLSTRUCT -> BOOL

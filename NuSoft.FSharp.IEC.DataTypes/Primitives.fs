@@ -82,67 +82,25 @@
     [<MeasureAnnotatedAbbreviation>] type LREAL<[<Measure>] 'Measure>  = LREAL
     
 
-    //let inline getBit<'T when 
-    //  'T: (static member (<<<): 'T -> int -> 'T) and 
-    //  'T: (static member (&&&): 'T -> 'T -> 'T) and 
-    //  'T: (static member op_RightShift: 'T -> int -> 'T)> (a: 'T) (b: int) = 
-    //  (# "shr" (# "and" a (# "shl" 1 b : int #) : int #) b : bool #)
-    //
-    //let inline setBit<'T when 
-    //  'T: (static member (<<<): 'T -> int -> 'T) and 
-    //  'T: (static member (&&&): 'T -> 'T -> 'T) and 
-    //  'T: (static member op_RightShift: 'T -> int -> 'T)> (a: 'T) (b:int) (v:bool) = 
-    //  if v then
-    //    (# "or" a (# "shl" 1 b : int64 #) : 'T #)
-    //  else
-    //    (# "and" a (# "not" (# "shl" 1 b : int64 #) : int64 #) : 'T #)
+    let inline 
+      op_AtAt<'T 
+      when 'T:  (static member (<<<): 'T -> int -> 'T) 
+      and 'T:   (static member (&&&): 'T -> 'T -> 'T) 
+      and 'T:   (static member op_RightShift: 'T -> int -> 'T)> (a: 'T) (b: int) = 
+      ( a &&& ( (# "" 1 : 'T #) <<< b) ) >>> b 
+
+    let inline 
+      op_LessBang<'T 
+        when 'T:  (static member (<<<): 'T -> int -> 'T) 
+        and 'T:   (static member (&&&): 'T -> 'T -> 'T) 
+        and 'T:   (static member (~~~): 'T -> 'T) 
+        and 'T:   equality 
+        and 'T:   (static member (|||): 'T -> 'T -> 'T)> (a: 'T) (b: int) (c: 'T) =
+      match c <> Unchecked.defaultof<'T> with
+        | true -> a ||| ((# "" 1 : 'T #) <<< b)
+        | _ -> a &&& (~~~((# "" 1 : 'T #) <<< b))
       
-
-
-    
-    //let inline op_Bar n i = getBit n i
-    //let inline op_BarBar n i = setBit n i
-    //let inline op_LessThanMinus (f:bool -> 'T when 'T: (static member (<<<): 'T -> int -> 'T) and 'T: (static member (&&&): 'T -> 'T -> 'T) and 'T: (static member op_RightShift: 'T -> int -> 'T) ) (value:bool) = f value   
-      
-      
-    //let inline (?<-) n i value = setBit n i value
-    //let (?) (n:WORD ) i = getBit n i 
-    //let (?) (n:DWORD) i = getBit n i 
-    //let (?) (n:LWORD) i = getBit n i 
-    //let (?) (n:SINT ) i = getBit n i 
-    //let (?) (n:USINT) i = getBit n i 
-    //let (?) (n:INT  ) i = getBit n i 
-    //let (?) (n:UINT ) i = getBit n i 
-    //let (?) (n:DINT ) i = getBit n i 
-    //let (?) (n:UDINT) i = getBit n i 
-    //let (?) (n:LINT ) i = getBit n i 
-    //let (?) (n:ULINT) i = getBit n i 
-    //
-    //let (?<-) (n:BYTE ) i v = setBit n i v
-    //let (?<-) (n:WORD ) i v = setBit n i v
-    //let (?<-) (n:DWORD) i v = setBit n i v
-    //let (?<-) (n:LWORD) i v = setBit n i v
-    //let (?<-) (n:SINT ) i v = setBit n i v
-    //let (?<-) (n:USINT) i v = setBit n i v
-    //let (?<-) (n:INT  ) i v = setBit n i v
-    //let (?<-) (n:UINT ) i v = setBit n i v
-    //let (?<-) (n:DINT ) i v = setBit n i v
-    //let (?<-) (n:UDINT) i v = setBit n i v
-    //let (?<-) (n:LINT ) i v = setBit n i v
-    //let (?<-) (n:ULINT) i v = setBit n i v
-
-
-
-
-
-
-
-
-
-
-
-
-     
+ 
   [<AutoOpen>]
   module MeasureOperators =
     let inline retype<'T,'U> (x:'T) : 'U = (# "" x : 'U #)
@@ -161,23 +119,4 @@
     let inline ULINTWithMeasure  (f : ULINT) : ULINT<'Measure> = retype f
     let inline REALWithMeasure   (f : REAL ) : REAL<'Measure> = retype f
     let inline LREALWithMeasure  (f : LREAL) : LREAL<'Measure> = retype f
-  
-  
-  
-  //[<AutoOpen>]
-  //module Workarounds =
-  //  open System.Runtime.InteropServices
-  //  
-  //  [<Struct;StructLayout(LayoutKind.Sequential, Pack=1)>]
-  //  type BOOLSTRUCT = 
-  //    val value: BOOL
-  //
-  //    new(value) = {
-  //      value=value
-  //    }
-  //    
-  //  [<CompiledName("ToBool")>]
-  //  let inline BOOL (x: BOOL) = new BOOLSTRUCT(x)
-  //  [<CompiledName("FromBool")>]
-  //  let inline BOOLSTRUCT (x: BOOLSTRUCT) = x.value
     

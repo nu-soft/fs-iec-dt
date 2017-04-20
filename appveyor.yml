@@ -1,0 +1,25 @@
+skip_commits:
+  files:
+    - **/*.md
+    - **/*.yml
+    - **/*.ps1
+
+branches:
+  only:
+    - master
+    
+before_build:
+  - nuget restore
+platform: Any CPU
+configuration: Release
+
+version: '1.0.{build}'
+assembly_info:
+  patch: true
+  file: AssemblyInfo.fs
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+
+after_test:
+  - ps: .\nuget\pack.ps1
+  
