@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{A543815D-25C2-465B-BEE9-693697DEDE17}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
-		build.fsx = build.fsx
 		NuGet\NuSoft.FSharp.IEC.DataTypes.nuspec = NuGet\NuSoft.FSharp.IEC.DataTypes.nuspec
 		NuGet\pack.ps1 = NuGet\pack.ps1
 	EndProjectSection

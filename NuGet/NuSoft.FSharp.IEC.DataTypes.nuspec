@@ -16,6 +16,6 @@
     </releaseNotes>
   </metadata>
   <files>
-    <file src="..\build\NuSoft.FSharp.IEC.DataTypes.dll" target="lib\net" />
+    <file src="..\NuSoft.FSharp.IEC.DataTypes\bin\Release\NuSoft.FSharp.IEC.DataTypes.dll" target="lib\net" />
   </files>
 </package>
