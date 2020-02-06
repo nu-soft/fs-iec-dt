@@ -1,0 +1,29 @@
+type file
+id NuSoft.FSharp.IEC.DataTypes
+title
+    NuSoft.FSharp.IEC.DataTypes
+owners
+    Pawel Paluch (@ppaluch)
+authors 
+    Pawel Paluch (@ppaluch)
+projectUrl
+    https://github.com/nu-soft/fs-iec-dt/tree/scaffold-migration/nu-soft/fs-iec-dt
+iconUrl
+    https://raw.githubusercontent.com/nu-soft/fs-iec-dt/scaffold-migration/nu-soft/fs-iec-dt/master/docs/files/img/logo.png
+licenseUrl
+    https://github.com/nu-soft/fs-iec-dt/tree/scaffold-migration/nu-soft/fs-iec-dt/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+language
+    F#
+copyright
+    Copyright 2017
+tags
+    IEC FSharp
+summary
+    IEC-61131-3 type aliases for F#
+description
+    IEC-61131-3 type aliases for F#
+
+files
+	../../bin/NuSoft.FSharp.IEC.DataTypes ==> lib
