@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NuSoft.FSharp.IEC.DataTypes</id>
+    <version>$version$</version>
+    <authors>Pawel Paluch (@ppaluch)</authors>
+    <owners>Pawel Paluch (@ppaluch)</owners>
+    <licenseUrl>https://github.com/nu-soft/fs-iec-dt/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/nu-soft/fs-iec-dt</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IEC-61131-3 type aliases for F#</description>
+    <copyright>Copyright © 2017 NU-Soft</copyright>
+    <tags>IEC FSharp</tags>
+    <releaseNotes>
+      Added missing key name in exception
+    </releaseNotes>
+  </metadata>
+  <files>
+    <file src="..\NuSoft.FSharp.IEC.DataTypes\bin\Release\NuSoft.FSharp.IEC.DataTypes.dll" target="lib\net" />
+  </files>
+</package>

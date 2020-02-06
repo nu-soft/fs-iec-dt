@@ -387,6 +387,7 @@ Target.create "All" ignore
   ==> "RunTests"
 //  ==> "GenerateDocs"
   ==> "NuGet"
+  ==> "BuildPackage"
   ==> "All"
 
 //"RunTests" ?=> "CleanDocs"
