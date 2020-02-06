@@ -385,16 +385,16 @@ Target.create "All" ignore
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"
-  ==> "GenerateDocs"
+//  ==> "GenerateDocs"
   ==> "NuGet"
   ==> "All"
 
-"RunTests" ?=> "CleanDocs"
+//"RunTests" ?=> "CleanDocs"
 
-"CleanDocs"
-  ==>"Docs"
-  ==> "ReferenceDocs"
-  ==> "GenerateDocs"
+//"CleanDocs"
+//  ==>"Docs"
+//  ==> "ReferenceDocs"
+//  ==> "GenerateDocs"
 
 "Clean"
   ==> "Release"
